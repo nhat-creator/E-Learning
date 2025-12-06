@@ -89,6 +89,7 @@ export default function MyCourse() {
   const [selectedCourse, setSelectedCourse] = useState(null);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     dispatch(getUserInfo());
   }, [dispatch]);
 
