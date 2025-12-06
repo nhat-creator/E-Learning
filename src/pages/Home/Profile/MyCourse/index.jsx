@@ -1,6 +1,6 @@
 import { getUserInfo } from "../../../../store/Reducers/userInfoReducer";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../../_components/Loading";
 import { cancelJoinCourse } from "../../../../store/Reducers/joinCoursesReducer";
@@ -88,8 +88,10 @@ export default function MyCourse() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+  useEffect(() => {
     dispatch(getUserInfo());
   }, [dispatch]);
 
