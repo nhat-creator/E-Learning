@@ -24,6 +24,7 @@ export default function Information() {
   const [showPassword, setShowPassword] = useState(false);
   const toggleShowPassword = () => setShowPassword((prev) => !prev);
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     dispatch(getUserInfo());
   }, [dispatch]);
   const state = useSelector((state) => state.userInfoReducer);

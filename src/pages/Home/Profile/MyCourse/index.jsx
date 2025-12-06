@@ -88,8 +88,11 @@ export default function MyCourse() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
 
-  useLayoutEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
   useEffect(() => {
     dispatch(getUserInfo());
@@ -428,7 +431,10 @@ export default function MyCourse() {
   };
   return (
     <div className="w-full bg-white rounded-2xl shadow-lg border border-[#e0e7ef] p-4 md:p-8 lg:p-10 animate-[fadeInUp_0.5s_ease]">
-      <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8">
+      <h1
+        className="text-2xl md:text-3xl font-extrabold mb-8"
+        style={{ color: "#0284C7" }}
+      >
         Khóa học của tôi
       </h1>
       {renderCourses()}

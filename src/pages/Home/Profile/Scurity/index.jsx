@@ -1,6 +1,10 @@
 import React from "react";
+import { useEffect } from "react";
 
 export default function Security() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div className="w-full px-4 pb-10 animate-[fadeInUp_0.5s_ease]">
       <div className="w-full bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-10 mr-auto">
