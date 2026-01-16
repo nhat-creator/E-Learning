@@ -9,7 +9,7 @@ const buildRules = () => [
   {
     keywords: ["khóa học", "course", "môn học"],
     response:
-      "Bạn có thể xem danh sách khóa học ở mục Khóa học. Muốn lọc theo danh mục hay tìm khóa học cụ thể không?",
+      "E-LEARNING cung cấp nhiều khóa học đa dạng bao gồm: Lập trình Backend, Thiết kế Web, Lập trình di động, Lập trình Front-end, Lập trình Full Stack và Tư duy lập trình. Bạn có thể xem thêm trên trang ở mục Khóa học?",
   },
   {
     keywords: ["ghi danh", "register", "enroll"],
