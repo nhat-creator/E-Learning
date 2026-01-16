@@ -3,6 +3,7 @@ import Footer from "./_components/Footer";
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Chatbot from "../../components/Chatbot/Chatbot";
 
 export default function HomeTemplate() {
   const navigate = useNavigate();
@@ -43,27 +44,34 @@ export default function HomeTemplate() {
       </main>
       <Footer />
 
-      {/* Scroll to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 z-50 bg-gradient-to-br from-[#0EA5E9] to-[#0369A1] text-white w-14 h-14 rounded-full shadow-2xl hover:shadow-[#0EA5E9]/50 hover:scale-110 transition-all duration-300 flex items-center justify-center group ${
-          showScrollTop
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-20 pointer-events-none"
-        }`}
-        aria-label="Scroll to top"
-      >
-        <svg
-          className="w-6 h-6 group-hover:-translate-y-1 transition-transform duration-300"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          viewBox="0 0 24 24"
+      <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex items-end gap-3">
+        <Chatbot />
+
+        <div
+          className={`overflow-hidden transition-all duration-300 ease-out ${
+            showScrollTop
+              ? "w-12 md:w-14 opacity-100 translate-y-0"
+              : "w-0 opacity-0 translate-y-2 pointer-events-none"
+          }`}
         >
-          <path d="M5 15l7-7 7 7" />
-        </svg>
-        <span className="absolute inset-0 rounded-full bg-[#0EA5E9] opacity-0 group-hover:opacity-30 group-hover:scale-150 transition-all duration-500"></span>
-      </button>
+          <button
+            onClick={scrollToTop}
+            className="relative animate-scroll-top-in bg-gradient-to-br from-[#0EA5E9] to-[#0369A1] text-white w-12 h-12 md:w-14 md:h-14 rounded-full shadow-2xl hover:shadow-[#0EA5E9]/30 transition-all duration-300 flex items-center justify-center group"
+            aria-label="Scroll to top"
+          >
+            <svg
+              className="w-5 h-5 md:w-6 md:h-6 group-hover:-translate-y-1 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 15l7-7 7 7" />
+            </svg>
+            <span className="absolute inset-0 rounded-full bg-[#0EA5E9] opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none"></span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

@@ -55,3 +55,7 @@
     opacity: 1;
   }
 }
+
+.animate-scroll-top-in {
+  animation: fadeInUp 0.35s ease-out;
+}
